@@ -22,7 +22,7 @@
     <div class="cointainer m-5 p-3 border border-danger">
 
     <!--*********************START HARE********************-->
- <form action="insert-data.php" method="POST" id="form" >
+ <form action="insert-data.php" method="POST" id="form" name="form" onsubmit="return validateForm()" >
  
      <div class="form-roup row">
          <div class="col-sm-6 col-lg-3">
@@ -74,9 +74,9 @@
         
         <div class=" form-check col-sm-6 col-lg-3 ml-3">
             <label for="checkbox">Select Your Subjects</label><br>
-            <input type='checkbox' id="checklist" name='check_list[]' value='java' checked class="form-check-input">Java<br>
-            <input type='checkbox' id="checklist" name='check_list[]' value='php'class="form-check-input">PHP<br>
-            <input type='checkbox' id="checklist" name='check_list[]' value='python'class="form-check-input">Python<br>
+            <input type='checkbox' id="checklist1" name='check_list[]' value='java' checked class="form-check-input">Java<br>
+            <input type='checkbox' id="checklist2" name='check_list[]' value='php'class="form-check-input">PHP<br>
+            <input type='checkbox' id="checklist3" name='check_list[]' value='python'class="form-check-input">Python<br>
             
         </div>
 
@@ -105,7 +105,47 @@
     <div class="cointainer margin-bottom: 500px">
         
     </div>
-    
+    <script>
+            function validateForm() {
+        
+            if ( document.forms["form"]["name"].value.trim()=="" ) {
+                alert("Enter Name Please! ");
+                document.getElementById("name").focus();
+                return false;
+            }
+            else if ( document.forms["form"]["email"].value.trim()== "" ) {
+                alert("Enter Valid Email");
+                document.getElementById("email").focus();
+                return false;
+            }
+            else if ( document.forms["form"]["number"].value <10 ) {
+                alert("Enter Valid Mobile Number");
+                document.getElementById("number").focus();
+                return false;
+            }
+            else if ( document.forms["form"]["date"].value== "" ) {
+                alert("date must be filled out");
+                document.getElementById("date").focus();
+                return false;
+            }
+            else if ( document.getElementById('checklist1').checked ==false &&document.getElementById('checklist2').checked ==false &&document.getElementById('checklist3').checked ==false) {
+                alert("checklist must be filled out");
+     
+                return false;
+            }
+            else if ( document.forms["form"]["address"].value<10 ) {
+                alert("Enter Valid Address");
+                document.getElementById("address").focus();
+                return false;
+
+                
+            }else{
+                window.confirm("Sure to Submit");
+            }
+        }
+      
+        
+    </script>
     
 </body>
 </html>

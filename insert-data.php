@@ -21,7 +21,7 @@
             // Loop to store and display values of individual checked checkbox.
             foreach($_POST['check_list'] as $selected){
 
-                $chk.=$selected.",";
+                $chk.=$selected." ";
                 
                 // stores value of selected subjects 
 
